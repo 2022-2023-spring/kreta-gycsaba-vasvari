@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SubjectService implements ISubjectService {
@@ -23,12 +24,14 @@ public class SubjectService implements ISubjectService {
 
     @Override
     public Subject getSubjectById(long id) {
-        return null;
+        Optional<Subject> subject=repo.findById(id);
+        return subject.get();
     }
 
     @Override
     public long saveOrUpdate(Subject subject) {
-        return 0;
+        repo.save(subject);
+        return subject.getId();
     }
 
     @Override
