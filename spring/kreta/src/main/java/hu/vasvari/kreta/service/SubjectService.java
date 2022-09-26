@@ -5,6 +5,7 @@ import hu.vasvari.kreta.repo.interfaces.ISubjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,7 +16,9 @@ public class SubjectService implements ISubjectService {
 
     @Override
     public List<Subject> getAllSubject() {
-        return null;
+        List<Subject> subjects = new ArrayList<Subject>();
+        repo.findAll().forEach(subject ->subjects.add(subject));
+        return subjects;
     }
 
     @Override
