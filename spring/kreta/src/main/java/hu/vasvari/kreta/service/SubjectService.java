@@ -25,7 +25,10 @@ public class SubjectService implements ISubjectService {
     @Override
     public Subject getSubjectById(long id) {
         Optional<Subject> subject=repo.findById(id);
-        return subject.get();
+        if (subject.isPresent())
+            return subject.get();
+        else
+            return null;
     }
 
     @Override
@@ -36,6 +39,8 @@ public class SubjectService implements ISubjectService {
 
     @Override
     public void deleteById(long id) {
-
+        Optional<Subject> subject=repo.findById(id);
+        if (subject.isPresent())
+            repo.deleteById(id);
     }
 }
