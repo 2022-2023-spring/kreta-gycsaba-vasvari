@@ -21,6 +21,9 @@ public class KretaApplication {
 		SpringApplication.run(KretaApplication.class, args);
 	}
 
+	//http://localhost:8888/v2/api-docs
+	// http://localhost:8888/swagger-ui/index.html
+
 	@Configuration
 	@EnableSwagger2
 	@Import(SpringDataRestConfiguration.class)
