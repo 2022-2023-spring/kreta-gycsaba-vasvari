@@ -9,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,7 +41,7 @@ public class SubjectService implements ISubjectService {
             pagedList.setNumberOfItems(repo.count());
             int numberOfPage=(int) Math.floor(repo.count()/pageSize)+1;
             pagedList.setNumberOfPage(numberOfPage);
-            pagedList.setList(pageSubject.getContent());
+            pagedList.setItems(pageSubject.getContent());
             return pagedList;
         } else {
             return null;

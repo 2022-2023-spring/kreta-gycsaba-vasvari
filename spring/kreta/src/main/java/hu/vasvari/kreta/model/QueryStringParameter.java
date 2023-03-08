@@ -11,8 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class QueryStringParameter {
 
-    public int numberOfPage;
-    public int numberOfItems;
-    public int currentPage;
-    public int pageSize;
+    public int NumberOfPage;
+    public int NumberOfItems;
+    public int CurrentPage;
+    public int PageSize;
 }

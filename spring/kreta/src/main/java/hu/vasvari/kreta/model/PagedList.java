@@ -10,18 +10,18 @@ import java.util.List;
 @Getter
 @Setter
 public class PagedList<T> implements Iterable {
-    private long numberOfItems;
-    private int pageSize;
-    private int currentPage;
-    private int numberOfPage;
-    private List<T> list;
+    private long NumberOfItems;
+    private int PageSize;
+    private int CurrentPage;
+    private int NumberOfPage;
+    private List<T> Items;
 
     public PagedList() {
-        numberOfItems=0;
-        pageSize=0;
-        currentPage=0;
-        numberOfPage=0;
-        list = new ArrayList<T>();
+        NumberOfItems =0;
+        PageSize =0;
+        CurrentPage =0;
+        NumberOfPage =0;
+        Items = new ArrayList<T>();
     }
 
     @Override
