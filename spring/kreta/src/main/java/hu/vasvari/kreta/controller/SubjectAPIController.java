@@ -1,8 +1,11 @@
 package hu.vasvari.kreta.controller;
 
+import hu.vasvari.kreta.model.PagedList;
+import hu.vasvari.kreta.model.QueryStringParameter;
 import hu.vasvari.kreta.model.Subject;
 import hu.vasvari.kreta.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +21,22 @@ public class SubjectAPIController {
     public List<Subject> getAllSubject() {
         return service.getAllSubject();
     }
+
+    @PostMapping(value = "/Subject/getpaged")
+    public PagedList<Subject> GetPaged(@RequestBody QueryStringParameter paramters) {
+        int currentPage = paramters.getCurrentPage();
+        if (currentPage<0) {
+            currentPage=0;
+        }
+        int pageSize = paramters.getPageSize();
+        if (pageSize<=0) {
+            pageSize=1;
+        }
+
+        PagedList<Subject> pageSubject=service.GetPaged(currentPage,pageSize);
+        return pageSubject;
+    }
+
 
     //localhost:8888/api/subject/
     @PostMapping(value = "/subject", name="Save subject")
